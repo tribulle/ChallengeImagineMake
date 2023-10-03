@@ -2,6 +2,7 @@ import espace
 import point
 import random
 import math
+import MeshGenerator
 
 
 def random_point():
@@ -16,6 +17,8 @@ for i in range(500):
     data.append(random_point())
 
 espace_in.init_points(data)
-espace_in.afficher()
+#espace_in.afficher()
 
 data_np = espace_in.return_xyz()
+
+MeshGenerator.MeshGenerator(data_np)

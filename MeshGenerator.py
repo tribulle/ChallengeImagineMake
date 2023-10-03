@@ -6,12 +6,12 @@ from plyfile import PlyData
 # Chargez le fichier PLY
 plydata = PlyData.read('Data/ear_back.ply')
 
-# Accédez aux données des nuages de points
+# Accï¿½dez aux donnï¿½es des nuages de points
 x = plydata['vertex']['x']
 y = plydata['vertex']['y']
 z = plydata['vertex']['z']
 
-# Convertissez les données en tableaux NumPy
+# Convertissez les donnï¿½es en tableaux NumPy
 points = np.vstack((x, y, z)).T
 
 def MeshGenerator(points):
@@ -20,20 +20,18 @@ def MeshGenerator(points):
 
     # Generate the mesh
     mesh = cloud.delaunay_2d()
-    return mesh
+    MeshGenerator
+    # Plot the mesh
+    plotter = pv.Plotter()
+    plotter.add_mesh(mesh, color='white')
+    plotter.show()
 
+    # Save the mesh to a file
+    #mesh.save('mesh.vtk')
 
-mesh = MeshGenerator(points)
-# Plot the mesh
-plotter = pv.Plotter()
-plotter.add_mesh(mesh, color='white')
-plotter.show()
+    # Visualize the mesh with matplotlib
+    pv.plot(mesh)
+    plt.show()
 
-# Save the mesh to a file
-mesh.save('mesh.vtk')
-
-# Visualize the mesh with matplotlib
-pv.plot(mesh)
-plt.show()
 
 
