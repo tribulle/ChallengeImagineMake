@@ -17,3 +17,5 @@ for i in range(500):
 
 espace_in.init_points(data)
 espace_in.afficher()
+
+data_np = espace_in.return_xyz()

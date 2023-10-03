@@ -2,6 +2,7 @@ import point
 import maille
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import proj3d
+import numpy as np
 """
 Cette classe permet de définir l'ensemble des points de l'espace
 """
@@ -30,4 +31,14 @@ class espace:
             axes.scatter(i.x,i.y,i.z)
 
         plt.show()
+
+    """
+    Retourne le nuage de points au format np.array([np.array([x,y,z]),...])
+    """
+    def return_xyz(self):
+        array = np.array()
+        for i in self.points :
+            array_temp = np.array([i.x,i.y,i.z])
+            array.append(array_temp)
+        return array
     
