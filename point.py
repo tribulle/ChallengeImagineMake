@@ -3,7 +3,7 @@ import math
 """
 Cette classe permet de définir des points dans l'espace (en récupérant la sortie du système)
 """
-class Point:
+class point:
     def __init__(self):
         self.x = 0
         self.y = 0
@@ -15,10 +15,13 @@ class Point:
     """
     dist : la distance retournée par du capteur
     theta : l'angle "horizontal" (l'angle de rotation du lidar)
-    phti : l'angle "vertical" (celui du moteur supplémentaire)
+    phi : l'angle "vertical" (celui du moteur supplémentaire)
     """
-    def set_angle_dist(self,dist,theta,phi):
-        self.x = dist*math.cos(theta)*math.sin(phi)
-        self.y = dist*math.sin(phi)*math.sin(theta)
-        self.z = dist*math.cos(theta)
+    def set_angle_dist(self,data):
+        dist = data[0]
+        theta = data[1]
+        phi = data[2]
+        self.x = dist*math.cos(theta)*math.cos(phi)
+        self.y = dist*math.sin(phi)*math.cos(theta)
+        self.z = dist*math.sin(theta)
 
