@@ -34,6 +34,7 @@ class espace:
 
     """
     Retourne le nuage de points au format np.array([np.array([x,y,z]),...])
+    afin d'être compatible avec la fonction mesh
     """
     def return_xyz(self):
         array = np.array()
