@@ -37,9 +37,10 @@ class espace:
     afin d'être compatible avec la fonction mesh
     """
     def return_xyz(self):
-        array = np.array()
-        for i in self.points :
-            array_temp = np.array([i.x,i.y,i.z])
-            array.append(array_temp)
+        array = np.empty((len(self.points),3))
+        for i in range(len(self.points)) :
+            array[i][0] = self.points.x
+            array[i][1] = self.points.y
+            array[i][2] = self.points.z
         return array
     
