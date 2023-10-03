@@ -1,4 +1,4 @@
-import point
+import Point
 import random
 import math
 

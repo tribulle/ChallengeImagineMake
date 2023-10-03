@@ -1,5 +1,5 @@
-import point
-import maille
+import Point
+import Maille
 """
 Cette classe permet de définir l'ensemble des points de l'espace
 """
