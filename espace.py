@@ -1,10 +1,10 @@
-import Point
-import Maille
+import point
+import maille
 """
 Cette classe permet de définir l'ensemble des points de l'espace
 """
 
-class Espace:
+class espace:
     def __init__(self):
         self.points= []
     
@@ -13,4 +13,8 @@ class Espace:
     """
     def init_points(self,data):
         for i in range(len(data)):
-            
+            p = point()
+            p.set_angle_dist(data[i])
+            self.points.append(p)
+
+    
