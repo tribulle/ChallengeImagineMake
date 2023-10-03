@@ -14,12 +14,16 @@ z = plydata['vertex']['z']
 # Convertissez les données en tableaux NumPy
 points = np.vstack((x, y, z)).T
 
-# Create a pyvista point cloud object
-cloud = pv.PolyData(points)
+def MeshGenerator(points):
+    # Create a pyvista point cloud object
+    cloud = pv.PolyData(points)
 
-# Generate the mesh
-mesh = cloud.delaunay_2d()
+    # Generate the mesh
+    mesh = cloud.delaunay_2d()
+    return mesh
 
+
+mesh = MeshGenerator(points)
 # Plot the mesh
 plotter = pv.Plotter()
 plotter.add_mesh(mesh, color='white')
