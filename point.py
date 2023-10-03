@@ -1,10 +1,9 @@
 import math
 
-
 """
 Cette classe permet de définir des points dans l'espace (en récupérant la sortie du système)
 """
-class point:
+class Point:
     def __init__(self):
         self.x = 0
         self.y = 0
