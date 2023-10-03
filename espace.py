@@ -14,10 +14,13 @@ class espace:
     """
     A l'aide du jeu de données on place les points
     """
-    def init_points(self,data):
+    def init_points(self,data,mode=False):
         for i in range(len(data)):
             p = point.point()
-            p.set_angle_dist(data[i])
+            if(mode):
+                p.set_xyz(data[i])
+            else:
+                p.set_angle_dist(data[i])
             self.points.append(p)
 
     """

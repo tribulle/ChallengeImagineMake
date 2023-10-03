@@ -2,6 +2,7 @@ import numpy as np
 import pyvista as pv
 import matplotlib.pyplot as plt
 from plyfile import PlyData
+import structure
 
 # Chargez le fichier PLY
 plydata = PlyData.read('Data/ear_back.ply')
@@ -19,7 +20,11 @@ def MeshGenerator(points):
     cloud = pv.PolyData(points)
 
     # Generate the mesh
-    mesh = cloud.reconstruct_surface()
+    mesh = cloud.delaunay_3d() #cloud.reconstruct_surface(nbr_sz=20) #
+    s = structure.structure()
+    surf = mesh.extract_surface()
+    s.init_mailles(surf.faces,surf.points)
+    print("La surface totale est : "+str(s.calcul_surface_tot()))
     # Plot the mesh
     plotter = pv.Plotter()
     plotter.add_mesh(mesh, color='white')
