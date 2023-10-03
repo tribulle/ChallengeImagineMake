@@ -8,7 +8,7 @@ import MeshGenerator
 def random_point():
     dist = 100 #random.randint(0,100)
     theta = random.uniform(0,math.pi*2)
-    phi = random.uniform(0,math.pi*2)
+    phi = random.uniform(0,math.pi)
     return [dist,theta,phi]
 
 espace_in = espace.espace()

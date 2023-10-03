@@ -19,8 +19,7 @@ def MeshGenerator(points):
     cloud = pv.PolyData(points)
 
     # Generate the mesh
-    mesh = cloud.delaunay_2d()
-    MeshGenerator
+    mesh = cloud.reconstruct_surface()
     # Plot the mesh
     plotter = pv.Plotter()
     plotter.add_mesh(mesh, color='white')
@@ -32,6 +31,3 @@ def MeshGenerator(points):
     # Visualize the mesh with matplotlib
     pv.plot(mesh)
     plt.show()
-
-
-
