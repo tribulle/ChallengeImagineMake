@@ -1,17 +1,19 @@
-"""
-Permet de définir une collection de mailles
-"""
+
 import maille
 import separateur
 
 class structure:
+    """
+    Permet de définir une collection de mailles
+    """
     def __init__(self):
         self.liste_mailles = []
 
-    """
-    Initialise la liste de mailles à partir du mesh
-    """
+    
     def init_mailles(self,liste_faces : list,liste_points : list):
+        """
+        Initialise la liste de mailles à partir du mesh
+        """
         i = 0
         while i < len(liste_faces):
             liste = []
@@ -30,9 +32,10 @@ class structure:
         for i in self.liste_mailles:
             i.afficher_points()
 
-    """
-    Définit le type (sol/mur/plafond) de toutes les mailles de la structure
-    """
+
     def set_types(self):
+        """
+        Définit le type (sol/mur/plafond) de toutes les mailles de la structure
+        """
         for i in self.liste_mailles:
             separateur.separateur.mur_sol_plafond(i)

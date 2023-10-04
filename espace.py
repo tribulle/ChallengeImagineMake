@@ -3,18 +3,20 @@ import maille
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import proj3d
 import numpy as np
-"""
-Cette classe permet de définir l'ensemble des points de l'espace
-"""
+
 
 class espace:
+    """
+    Cette classe permet de définir l'ensemble des points de l'espace
+    """
     def __init__(self):
         self.points= []
     
-    """
-    A l'aide du jeu de données on place les points
-    """
+    
     def init_points(self,data : list,mode=False):
+        """
+        A l'aide du jeu de données on place les points
+        """
         for i in range(len(data)):
             p = point.point()
             if(mode):
@@ -23,10 +25,11 @@ class espace:
                 p.set_angle_dist(data[i])
             self.points.append(p)
 
-    """
-    Permet d'afficher à l'aide de matplotlib les points en 3D
-    """
+    
     def afficher(self):
+        """
+        Permet d'afficher à l'aide de matplotlib les points en 3D
+        """
         plt.figure(figsize=(100,100))
         axes = plt.axes(projection="3d")
 
@@ -35,11 +38,12 @@ class espace:
 
         plt.show()
 
-    """
-    Retourne le nuage de points au format np.array([np.array([x,y,z]),...])
-    afin d'être compatible avec la fonction mesh
-    """
+    
     def return_xyz(self):
+        """
+        Retourne le nuage de points au format np.array([np.array([x,y,z]),...])
+        afin d'être compatible avec la fonction mesh
+        """
         array = np.empty((len(self.points),3))
         for i in range(len(self.points)) :
             array[i][0] = self.points[i].x

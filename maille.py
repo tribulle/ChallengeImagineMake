@@ -2,17 +2,18 @@ import geometrie
 import point
 import math
 
-"""
-Cette classe permet de définir des mailles (sets de 3 points)
-pour créer une géométrie de base
 
-Convention pour les types :
-0 = mur
-1 = sol
-2 = plafond
-"""
 
 class maille:
+    """
+    Cette classe permet de définir des mailles (sets de 3 points)
+    pour créer une géométrie de base
+
+    Convention pour les types :
+    0 = mur
+    1 = sol
+    2 = plafond
+    """
     def __init__(self,face : list,liste_points : list):
         self.points = []
         for i in range(len(face)):
@@ -21,10 +22,11 @@ class maille:
             self.points.append(p)
         self.type = 0 #Par défaut c'est du mur
         
-    """
-    Calcul de l'aire du triangle
-    """
+    
     def calcul_surface(self):
+        """
+        Calcul de l'aire du triangle
+        """
         if(len(self.points)==3):
             d1 = geometrie.geometrie.dist_eucl(self.points[0],self.points[1])
             d2 = geometrie.geometrie.dist_eucl(self.points[1],self.points[2])
@@ -40,10 +42,11 @@ class maille:
         for i in self.points:
             i.afficher_point()
 
-    """
-    Permet de définir le type
-    """
+    
     def set_type(self,type : int):
+        """
+        Permet de définir le type
+        """
         self.type = type
 
 

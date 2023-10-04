@@ -6,7 +6,7 @@ import random
 import math
 
 def random_point(rayon: int):
-    dist = rayon #random.randint(0,100)
+    dist = rayon 
     theta = random.uniform(0,math.pi*2)
     phi = random.uniform(0,math.pi*2)
     return [dist,theta,phi]
