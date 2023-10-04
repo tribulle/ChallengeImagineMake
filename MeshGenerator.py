@@ -52,7 +52,7 @@ def MeshGenerator(points):
 
     # Plot the mesh
     plotter = pv.Plotter()
-    plotter.add_mesh(mesh_0, color='white')
+    plotter.add_mesh(mesh_0, color='grey')
     plotter.add_mesh(mesh_1, color='red')
     plotter.add_mesh(mesh_2, color='blue')
     plotter.show()
