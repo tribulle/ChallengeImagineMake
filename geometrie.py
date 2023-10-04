@@ -49,4 +49,5 @@ class geometrie:
         v2.vect_directeur(y,z)
         return geometrie.normaliser(geometrie.produit_vectoriel(v1,v2))
         
+    
 
