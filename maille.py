@@ -13,7 +13,7 @@ Convention pour les types :
 """
 
 class maille:
-    def __init__(self,face,liste_points):
+    def __init__(self,face : list,liste_points : list):
         self.points = []
         for i in range(len(face)):
             p = point.point()
@@ -43,7 +43,7 @@ class maille:
     """
     Permet de définir le type
     """
-    def set_type(self,type):
+    def set_type(self,type : int):
         self.type = type
 
 
