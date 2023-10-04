@@ -16,6 +16,22 @@ z = plydata['vertex']['z']
 # Convertissez les donn�es en tableaux NumPy
 points = np.vstack((x, y, z)).T
 
+def une_fonction_qui_fait_des_trucs(plotter,mesh : pv.PolyData,type:int):
+    if(mesh == None):
+        return
+    s = structure.structure()
+    surf = mesh.extract_surface()
+    s.init_mailles(surf.faces,surf.points)
+    if(type==0):
+        print("La surface totale des murs est : "+str(s.calcul_surface_tot()))
+        plotter.add_mesh(mesh, color='grey')
+    if(type==1):
+        print("La surface totale du sol est : "+str(s.calcul_surface_tot()))
+        plotter.add_mesh(mesh, color='red')
+    if(type==2):
+        print("La surface totale du plafond est : "+str(s.calcul_surface_tot()))
+        plotter.add_mesh(mesh, color='blue')
+
 def MeshGenerator(points):
     # Create a pyvista point cloud object
     cloud = pv.PolyData(points)
@@ -25,6 +41,7 @@ def MeshGenerator(points):
     s = structure.structure()
     surf = mesh.extract_surface()
     s.init_mailles(surf.faces,surf.points)
+    s.set_types()
     print("La surface totale est : "+str(s.calcul_surface_tot()))
     print("Le volume total est : "+str(mesh.volume))
 
@@ -34,27 +51,11 @@ def MeshGenerator(points):
     mesh_1 = liste_mesh[1]
     mesh_2 = liste_mesh[2]
 
-    s_0 = structure.structure()
-    surf_0 = mesh_0.extract_surface()
-    s_0.init_mailles(surf_0.faces,surf_0.points)
-
-    s_1 = structure.structure()
-    surf_1 = mesh_1.extract_surface()
-    s_1.init_mailles(surf_1.faces,surf_1.points)
-
-    s_2 = structure.structure()
-    surf_2 = mesh_2.extract_surface()
-    s_2.init_mailles(surf_2.faces,surf_2.points)
-
-    print("La surface totale des murs est : "+str(s_0.calcul_surface_tot()))
-    print("La surface totale du sol est : "+str(s_1.calcul_surface_tot()))
-    print("La surface totale du plafond est : "+str(s_2.calcul_surface_tot()))
-
     # Plot the mesh
     plotter = pv.Plotter()
-    plotter.add_mesh(mesh_0, color='grey')
-    plotter.add_mesh(mesh_1, color='red')
-    plotter.add_mesh(mesh_2, color='blue')
+    une_fonction_qui_fait_des_trucs(plotter,mesh_0,0)
+    une_fonction_qui_fait_des_trucs(plotter,mesh_1,1)
+    une_fonction_qui_fait_des_trucs(plotter,mesh_2,2)
     plotter.show()
 
     # Save the mesh to a file
