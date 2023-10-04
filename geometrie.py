@@ -9,6 +9,9 @@ import point
 class geometrie:
     @staticmethod
     def dist_eucl(x1 : point,x2 : point):
+        """
+        Calcule la distance euclidienne entre deux points
+        """
         return math.sqrt((x1.x-x2.x)**2+(x1.y-x2.y)**2+(x1.z-x2.z)**2)
     
     
@@ -21,6 +24,9 @@ class geometrie:
     
     @staticmethod
     def normaliser(v : vecteur):
+        """
+        Renvoie un vecteur normalisé du vecteur passé en paramètre
+        """
         norme = math.sqrt(geometrie.produit_scalaire(v,v))
         return vecteur.vecteur(v.x/norme,v.y/norme,v.z/norme)
     
