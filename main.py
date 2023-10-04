@@ -28,7 +28,7 @@ data.append([1,1,1])
 data.append([1,1,-1])
 data.append([1,-1,1])
 
-espace_in.init_points(data,False)
+espace_in.init_points(data,True)
 #espace_in.afficher()
 
 data_np = espace_in.return_xyz()

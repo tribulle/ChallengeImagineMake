@@ -15,12 +15,14 @@ class maille:
             p.set_xyz(liste_points[face[i]])
             self.points.append(p)
     """
-    Calcul d'un triangle
+    Calcul de l'aire du triangle
     """
     def calcul_surface(self):
         d1 = geometrie.geometrie.dist_eucl(self.points[0],self.points[1])
         d2 = geometrie.geometrie.dist_eucl(self.points[1],self.points[2])
-        return (d1**2 - (d2/2)**2)*d2/2
+        d3 = geometrie.geometrie.dist_eucl(self.points[2],self.points[0])
+        p = (d1 + d2 + d3)/2
+        return math.sqrt(p*(p-d1)*(p-d2)*(p-d3))
 
 
 
