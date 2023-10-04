@@ -15,6 +15,7 @@ Convention pour les types :
 class maille:
     def __init__(self,face,liste_points):
         self.points = []
+        self.face = face
         for i in range(len(face)):
             p = point.point()
             p.set_xyz(liste_points[face[i]])
