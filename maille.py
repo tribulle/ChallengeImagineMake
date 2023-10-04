@@ -40,8 +40,11 @@ class maille:
         for i in self.points:
             i.afficher_point()
 
-
-
+    """
+    Permet de définir le type
+    """
+    def set_type(self,type):
+        self.type = type
 
 
     
