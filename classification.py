@@ -11,14 +11,14 @@ def classification(structure, points):
 
     for m in structure.liste_mailles:
         taille = len(m.face)
-        face_sequence = np.hstack([taille],m.face)
+        face_sequence = np.hstack(([taille],m.face))
 
         if m.type == 0:
-            liste_face_0 = np.hstack(liste_face_0,face_sequence)
+            liste_face_0 = np.hstack((liste_face_0,face_sequence))
         elif m.type == 1:
-            liste_face_1 = np.hstack(liste_face_1,face_sequence)
+            liste_face_1 = np.hstack((liste_face_1,face_sequence))
         else:
-            liste_face_2 = np.hstack(liste_face_2,face_sequence)
+            liste_face_2 = np.hstack((liste_face_2,face_sequence))
 
         print(liste_face_0)
         print(liste_face_1)
