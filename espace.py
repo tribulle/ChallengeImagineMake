@@ -14,7 +14,7 @@ class espace:
     """
     A l'aide du jeu de données on place les points
     """
-    def init_points(self,data,mode=False):
+    def init_points(self,data : list,mode=False):
         for i in range(len(data)):
             p = point.point()
             if(mode):

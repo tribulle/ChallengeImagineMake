@@ -9,7 +9,7 @@ class point:
         self.x = 0
         self.y = 0
         self.y = 0 
-    def set_xyz(self, list):
+    def set_xyz(self, list : list):
         self.x = list[0]
         self.y = list[1]
         self.z = list[2]
@@ -19,7 +19,7 @@ class point:
     theta : l'angle "horizontal" (l'angle de rotation du lidar)
     phi : l'angle "vertical" (celui du moteur supplémentaire)
     """
-    def set_angle_dist(self,data):
+    def set_angle_dist(self,data : list):
         dist = data[0]
         theta = data[1]
         phi = data[2]
