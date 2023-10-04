@@ -3,6 +3,7 @@ Cette classe permet de définir des fonctions pour la géométrie
 """
 import math
 import vecteur
+import maille
 
 class geometrie:
     @staticmethod
@@ -20,4 +21,13 @@ class geometrie:
     def normaliser(v):
         norme = math.sqrt(geometrie.produit_scalaire(v,v))
         return vecteur.vecteur(v.x/norme,v.y/norme,v.z/norme)
+    
+    @staticmethod
+    def vecteur_normal(m):
+        if(len(m.liste_points)!=3):
+            print("Erreur, la face ne contient pas 3 points !")
+            return vecteur(0,0,0)
+        x = m.liste_points[0]
+        y = m.liste_points[1]
+        z = m.liste_points[2]
 
