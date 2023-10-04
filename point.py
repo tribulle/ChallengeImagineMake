@@ -26,5 +26,8 @@ class point:
         self.x = dist*math.cos(theta)*math.cos(phi)
         self.y = dist*math.sin(phi)*math.cos(theta)
         self.z = dist*math.sin(theta)
+    
+    def afficher_point(self):
+        print("X : "+str(self.x) + " Y : "+str(self.y) + " Z : "+str(self.z))
 
 

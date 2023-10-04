@@ -14,7 +14,7 @@ class structure:
         i = 0
         while i < len(liste_faces):
             liste = []
-            for j in range(i,i+liste_faces[i]+1,1):
+            for j in range(i+1,i+liste_faces[i]+1,1):
                 liste.append(liste_faces[j])
             self.liste_mailles.append(maille.maille(liste,liste_points))
             i += liste_faces[i]+1
@@ -24,3 +24,7 @@ class structure:
         for i in self.liste_mailles:
             total += i.calcul_surface()
         return total
+    
+    def afficher_mailles(self):
+        for i in self.liste_mailles:
+            i.afficher_points()
