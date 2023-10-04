@@ -11,7 +11,7 @@ class structure:
     """
     Initialise la liste de mailles à partir du mesh
     """
-    def init_mailles(self,liste_faces,liste_points):
+    def init_mailles(self,liste_faces : list,liste_points : list):
         i = 0
         while i < len(liste_faces):
             liste = []

@@ -16,7 +16,7 @@ class separateur:
     Sépare les points selon si on est devant ou derière le plan YZ
     """
     @staticmethod
-    def devant_derriere(p):
+    def devant_derriere(p : point):
         if(p.y >= 0):
             return True
         return False
@@ -25,7 +25,7 @@ class separateur:
     Sépare les mailles selon le sol (Z+- = 0) et les murs
     """
     @staticmethod
-    def mur_sol_plafond(m):
+    def mur_sol_plafond(m : maille):
         z = vecteur.vecteur(0,0,1)
         v = geometrie.geometrie.vecteur_normal(m)
         x = geometrie.geometrie.produit_scalaire(z,v)

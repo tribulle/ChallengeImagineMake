@@ -4,21 +4,22 @@ Cette classe permet de définir des fonctions pour la géométrie
 import math
 import vecteur
 import maille
+import point
 
 class geometrie:
     @staticmethod
-    def dist_eucl(x1,x2):
+    def dist_eucl(x1 : point,x2 : point):
         return math.sqrt((x1.x-x2.x)**2+(x1.y-x2.y)**2+(x1.z-x2.z)**2)
     
     """
     Définit le produit scalaire entre de vecteurs de la classe vecteur
     """
     @staticmethod
-    def produit_scalaire(v1,v2):
+    def produit_scalaire(v1 : vecteur,v2 : vecteur):
         return math.abs(v1.x*v2.x + v1.y*v2.y + v1.z*v2.z)
     
     @staticmethod
-    def normaliser(v):
+    def normaliser(v : vecteur):
         norme = math.sqrt(geometrie.produit_scalaire(v,v))
         return vecteur.vecteur(v.x/norme,v.y/norme,v.z/norme)
     
