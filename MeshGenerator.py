@@ -34,5 +34,3 @@ def MeshGenerator(points):
     #mesh.save('mesh.vtk')
 
     # Visualize the mesh with matplotlib
-    pv.plot(mesh)
-    plt.show()
