@@ -18,5 +18,6 @@ class geometrie:
     
     @staticmethod
     def normaliser(v):
-        norme = math.sqrt(geometrie.produit_scalaire(v1,v1))
+        norme = math.sqrt(geometrie.produit_scalaire(v,v))
         return vecteur.vecteur(v.x/norme,v.y/norme,v.z/norme)
+
