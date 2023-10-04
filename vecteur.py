@@ -1,3 +1,3 @@
 """
-Classe qui défini des vecteurs
+Classe qui définit des vecteurs
 """
