@@ -29,10 +29,10 @@ def MeshGenerator(points):
     print("Le volume total est : "+str(mesh.volume))
 
     # Create new mesh (wall, floor, ceilling)
-    mesh_0 = pv.PolyData()
-    mesh_1 = pv.PolyData()
-    mesh_2 = pv.PolyData()
-    classification.classification(s,mesh,mesh_0,mesh_1,mesh_2)
+    liste_mesh = classification.classification(s,mesh)
+    mesh_0 = liste_mesh[0]
+    mesh_1 = liste_mesh[1]
+    mesh_2 = liste_mesh[2]
 
     s_0 = structure.structure()
     surf_0 = mesh_0.extract_surface()

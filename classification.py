@@ -2,7 +2,7 @@ import structure
 import numpy as np
 import pyvista as pv
 
-def classification(structure, mesh_base ,mesh_0, mesh_1, mesh_2):
+def classification(structure, mesh_base):
     
     # Les listes des faces (format PyVista)
     liste_face_0 = np.array([])
@@ -20,9 +20,12 @@ def classification(structure, mesh_base ,mesh_0, mesh_1, mesh_2):
         else:
             liste_face_2 = np.hstack(liste_face_2,face_sequence)
 
-        mesh_O = pv.PolyData(mesh_base.extract_surface().points, liste_face_0)
+        mesh_0 = pv.PolyData(mesh_base.extract_surface().points, liste_face_0)
         mesh_1 = pv.PolyData(mesh_base.extract_surface().points, liste_face_1)
         mesh_2 = pv.PolyData(mesh_base.extract_surface().points, liste_face_2)
+
+        liste_return = [mesh_0, mesh_1, mesh_2]
+        return liste_return
 
 
 
