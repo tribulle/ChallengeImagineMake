@@ -23,13 +23,10 @@ def une_fonction_qui_fait_des_trucs(plotter,mesh : pv.PolyData,type:int):
     surf = mesh.extract_surface()
     s.init_mailles(surf.faces,surf.points)
     if(type==0):
-        print("La surface totale des murs est : "+str(s.calcul_surface_tot()))
         plotter.add_mesh(mesh, color='grey')
     if(type==1):
-        print("La surface totale du sol est : "+str(s.calcul_surface_tot()))
         plotter.add_mesh(mesh, color='red')
     if(type==2):
-        print("La surface totale du plafond est : "+str(s.calcul_surface_tot()))
         plotter.add_mesh(mesh, color='blue')
 
 def MeshGenerator(points):
@@ -42,7 +39,10 @@ def MeshGenerator(points):
     surf = mesh.extract_surface()
     s.init_mailles(surf.faces,surf.points)
     s.set_types()
-    print("La surface totale est : "+str(s.calcul_surface_tot()))
+    print("La surface totale est : "+str(sum(s.calcul_surface_tot())))
+    print("La surface des murs est : "+str(s.calcul_surface_tot()[0]))
+    print("La surface du sol est : "+str(s.calcul_surface_tot()[1]))
+    print("La surface du plafond est : "+str(s.calcul_surface_tot()[2]))
     print("Le volume total est : "+str(mesh.volume))
 
     # Create new mesh (wall, floor, ceilling)

@@ -58,8 +58,8 @@ class geometrie:
         z = m.points[2]
         v1 = vecteur.vecteur(0,0,0)
         v2 = vecteur.vecteur(0,0,0)
-        v1.vect_directeur(x,y)
-        v2.vect_directeur(y,z)
+        v1 = v1.vect_directeur(x,y)
+        v2 = v2.vect_directeur(y,z)
         return geometrie.normaliser(geometrie.produit_vectoriel(v1,v2))
         
     

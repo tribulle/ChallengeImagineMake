@@ -24,6 +24,7 @@ def classification(structure, points):
 
     if(len(liste_face_0)>0):
         mesh_0 = pv.PolyData(points, liste_face_0)
+        print(mesh_0)
     if(len(liste_face_1)>0):
         mesh_1 = pv.PolyData(points, liste_face_1)
     if(len(liste_face_2)>0):
