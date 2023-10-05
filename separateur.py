@@ -31,8 +31,9 @@ class separateur:
         z = vecteur.vecteur(0,1,0)
         v = geometrie.geometrie.vecteur_normal(m)
         x = geometrie.geometrie.produit_scalaire(z,v)
+        midd= m.centre()
         if(x>coeff): #Dans ce cas on a du sol ou plafond
-            if(m.points[0].y>0): #cas plafond
+            if(midd.y>0): #cas plafond
                 m.set_type(2)
                 return
             else:

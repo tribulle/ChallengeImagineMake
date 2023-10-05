@@ -16,18 +16,18 @@ z = plydata['vertex']['z']
 # Convertissez les donn�es en tableaux NumPy
 points = np.vstack((x, y, z)).T
 
-def une_fonction_qui_fait_des_trucs(plotter,mesh : pv.PolyData,type:int):
-    if(mesh == None):
-        return
-    s = structure.structure()
-    surf = mesh.extract_surface()
-    s.init_mailles(surf.faces,surf.points)
-    if(type==0):
-        plotter.add_mesh(mesh, color='grey')
-    if(type==1):
-        plotter.add_mesh(mesh, color='red')
-    if(type==2):
-        plotter.add_mesh(mesh, color='blue')
+def une_fonction_qui_fait_des_trucs(plotter,points: list,type:int):
+    try:
+        cloud = pv.PolyData(points)
+        mesh = cloud.delaunay_2d()
+        if(type==0):
+            plotter.add_mesh(mesh, color='grey')
+        if(type==1):
+            plotter.add_mesh(mesh, color='red')
+        if(type==2):
+            plotter.add_mesh(mesh, color='blue')
+    except:
+        pass
 
 def MeshGenerator(points):
     # Create a pyvista point cloud object
@@ -46,16 +46,14 @@ def MeshGenerator(points):
     print("Le volume total est : "+str(mesh.volume))
 
     # Create new mesh (wall, floor, ceilling)
-    liste_mesh = classification.classification(s,points)
-    mesh_0 = liste_mesh[0]
-    mesh_1 = liste_mesh[1]
-    mesh_2 = liste_mesh[2]
+
+    (points_0, points_1, points_2) = classification.classification(s,points)
 
     # Plot the mesh
     plotter = pv.Plotter()
-    une_fonction_qui_fait_des_trucs(plotter,mesh_0,0)
-    une_fonction_qui_fait_des_trucs(plotter,mesh_1,1)
-    une_fonction_qui_fait_des_trucs(plotter,mesh_2,2)
+    une_fonction_qui_fait_des_trucs(plotter,points_0,0)
+    une_fonction_qui_fait_des_trucs(plotter,points_1,1)
+    une_fonction_qui_fait_des_trucs(plotter,points_2,2)
     plotter.show()
 
     # Save the mesh to a file

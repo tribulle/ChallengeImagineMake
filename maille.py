@@ -3,7 +3,6 @@ import point
 import math
 
 
-
 class maille:
     """
     Cette classe permet de définir des mailles (sets de 3 points)
@@ -16,7 +15,7 @@ class maille:
     """
     def __init__(self,face : list,liste_points : list):
         self.points = []
-        self.face = face
+        self.face = list(face)
         for i in range(len(face)):
             p = point.point()
             p.set_xyz(liste_points[face[i]])
@@ -49,6 +48,26 @@ class maille:
         Permet de définir le type
         """
         self.type = type
+
+    def centre(self):
+        """
+        Renvoie sous forme de point les coordonnées centrales de la maille
+        """
+        n = len(self.points)
+        liste = [point.point(i.x,i.y,i.z) for i in self.points]
+        m_x = 0
+        m_y = 0
+        m_z = 0
+        for i in liste:
+            m_x += i.x
+            m_y += i.y
+            m_z += i.z
+        m_x /= n
+        m_y /= n
+        m_z /= n
+        return point.point(m_x,m_y,m_z)
+
+
 
 
     
