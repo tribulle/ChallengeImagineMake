@@ -19,7 +19,7 @@ points = np.vstack((x, y, z)).T
 def une_fonction_qui_fait_des_trucs(plotter,points: list,type:int):
     try:
         cloud = pv.PolyData(points)
-        mesh = cloud.delaunay_2d()
+        mesh = cloud.delaunay_3d()
         if(type==0):
             plotter.add_mesh(mesh, color='grey')
         if(type==1):
