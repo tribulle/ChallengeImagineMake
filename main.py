@@ -9,7 +9,8 @@ import figures_test
 
 espace_in = espace.espace()
 data = figures_test.figure_test.sphere(2500,100)
-data = figures_test.figure_test.cube(1)
+#data = figures_test.figure_test.cube(1)
+data = figures_test.figure_test.cubeRD(10000,0.1)
 espace_in.init_points(data,True)
 #espace_in.afficher()
 

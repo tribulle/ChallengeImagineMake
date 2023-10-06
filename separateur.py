@@ -5,7 +5,7 @@ import geometrie
 
 
 #Coefficient qui gère à quel point on définit que qqch est du sol / plafond
-coeff = 0.8
+coeff = 0.4
 
 
 class separateur:
