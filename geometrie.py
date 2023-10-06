@@ -20,7 +20,7 @@ class geometrie:
         """
         Définit le produit scalaire entre de vecteurs de la classe vecteur
         """
-        return math.abs(v1.x*v2.x + v1.y*v2.y + v1.z*v2.z)
+        return abs(v1.x*v2.x + v1.y*v2.y + v1.z*v2.z)
     
     @staticmethod
     def normaliser(v : vecteur):
@@ -28,6 +28,9 @@ class geometrie:
         Renvoie un vecteur normalisé du vecteur passé en paramètre
         """
         norme = math.sqrt(geometrie.produit_scalaire(v,v))
+        if(norme == 0):
+            print("Problème, vecteur nul !")
+            return vecteur.vecteur(0,0,0)
         return vecteur.vecteur(v.x/norme,v.y/norme,v.z/norme)
     
     
@@ -39,7 +42,7 @@ class geometrie:
         x = v1.y*v2.z-v1.z*v2.y
         y = v1.z*v2.x-v1.x*v2.z
         z = v1.x*v2.y - v1.y*v2.x
-        return vecteur(x,y,z)
+        return vecteur.vecteur(x,y,z)
 
 
     @staticmethod
@@ -47,16 +50,16 @@ class geometrie:
         """
         Retourne le vecteur normal normalisé d'une maille
         """
-        if(len(m.liste_points)!=3):
+        if(len(m.points)!=3):
             print("Erreur, la face ne contient pas 3 points !")
             return vecteur(0,0,0)
-        x = m.liste_points[0]
-        y = m.liste_points[1]
-        z = m.liste_points[2]
+        x = m.points[0]
+        y = m.points[1]
+        z = m.points[2]
         v1 = vecteur.vecteur(0,0,0)
         v2 = vecteur.vecteur(0,0,0)
-        v1.vect_directeur(x,y)
-        v2.vect_directeur(y,z)
+        v1 = v1.vect_directeur(x,y)
+        v2 = v2.vect_directeur(y,z)
         return geometrie.normaliser(geometrie.produit_vectoriel(v1,v2))
         
     

@@ -23,9 +23,9 @@ class structure:
             i += liste_faces[i]+1
     
     def calcul_surface_tot(self):
-        total = 0
+        total = [0,0,0]
         for i in self.liste_mailles:
-            total += i.calcul_surface()
+            total[i.type] += i.calcul_surface()
         return total
     
     def afficher_mailles(self):

@@ -28,11 +28,12 @@ class separateur:
         """
         Sépare les mailles selon le sol (Z+- = 0) et les murs
         """
-        z = vecteur.vecteur(0,0,1)
+        z = vecteur.vecteur(0,1,0)
         v = geometrie.geometrie.vecteur_normal(m)
         x = geometrie.geometrie.produit_scalaire(z,v)
+        midd= m.centre()
         if(x>coeff): #Dans ce cas on a du sol ou plafond
-            if(m.liste_points[0].z>0): #cas plafond
+            if(midd.y>0): #cas plafond
                 m.set_type(2)
                 return
             else:

@@ -6,10 +6,10 @@ class point:
     """
     Cette classe permet de définir des points dans l'espace (en récupérant la sortie du système)
     """
-    def __init__(self):
-        self.x = 0
-        self.y = 0
-        self.y = 0 
+    def __init__(self,x=0,y=0,z=0):
+        self.x = x
+        self.y = y
+        self.z = z
     def set_xyz(self, list : list):
         self.x = list[0]
         self.y = list[1]
@@ -32,4 +32,7 @@ class point:
     def afficher_point(self):
         print("X : "+str(self.x) + " Y : "+str(self.y) + " Z : "+str(self.z))
 
+
+    def retour_liste(self):
+        return [self.x,self.y,self.z]
 

@@ -8,6 +8,7 @@ class vecteur :
         self.y = y
         self.z = z 
 
+    @staticmethod
     def vect_directeur(a : point, b : point):
 
         # Calcul des composantes du vecteur directeur
